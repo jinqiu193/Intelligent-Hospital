@@ -1,106 +1,109 @@
 
-# 智能医疗导诊系统
+# 智能导诊问答系统
 
-一个基于 AI 的智能导诊系统，帮助患者进行初步症状评估和科室推荐。
+一个基于 Flask 和 Moonshot AI 的智能导诊系统，通过多轮对话收集患者信息，提供初步诊断建议和就医指导。
 
 ## 功能特点
 
-- 🤖 智能问诊对话
-- 🎙️ 语音输入支持
-- 📋 专业病历记录生成
-- 🏥 科室精准推荐
-- 🔒 隐私数据保护
-- 📱 响应式界面设计
+- 🤖 智能问诊对话：通过多轮对话逐步了解患者症状
+- 🎙️ 语音输入支持：支持语音描述症状
+- 📝 专业病历记录：自动生成规范的门诊病历
+- 🏥 科室精准推荐：根据症状智能推荐就诊科室
+- 🔒 隐私安全保护：确保患者信息安全
+- 📱 响应式界面：支持各种设备访问
 
 ## 技术栈
 
-- 后端：Python + Flask
-- 前端：HTML5 + CSS3 + JavaScript
+- 后端：Flask
 - AI 模型：Moonshot AI
-- 语音识别：Google Speech Recognition
+- 前端：HTML5 + CSS3 + JavaScript
+- 语音识别：SpeechRecognition
+- UI 组件：Font Awesome
+- Markdown 渲染：Marked.js
 
 ## 快速开始
 
 ### 环境要求
 
-- Python 3.8+
-- pip 包管理器
+- Python 3.7+
+- Flask
+- OpenAI Python SDK
+- SpeechRecognition
 
-### 安装步骤
+### 安装依赖
 
-1. 克隆项目
 ```bash
-git clone [项目地址]
-cd [项目目录]
+pip install flask openai speechrecognition
 ```
 
-2. 安装依赖
-```bash
-pip install -r requirements.txt
+### 配置
+
+1. 在代码中设置 Moonshot AI 的 API 密钥：
+
+```python
+client = OpenAI(
+    base_url="https://api.moonshot.cn/v1",
+    api_key="your-api-key"
+)
 ```
 
-3. 配置 API 密钥
-在项目根目录创建 `.env` 文件并添加：
-```plaintext
-MOONSHOT_API_KEY=你的API密钥
-```
+### 运行
 
-4. 运行项目
 ```bash
 python app.py
 ```
 
 访问 `http://localhost:5000` 即可使用系统。
 
-## 使用说明
+## 使用流程
 
-1. 填写基本信息
-   - 性别
-   - 年龄
-   - 职业
-   - 婚育状况
+1. 填写基本信息：性别、年龄、职业、婚育状况
+2. 描述主要症状（支持文字或语音输入）
+3. 回答系统追问，提供更详细信息
+4. 获取诊断建议和就医指导
 
-2. 描述症状
-   - 支持文字输入
-   - 支持语音输入
+## 系统特性
 
-3. 获取建议
-   - 智能问诊对话
-   - 科室推荐
-   - 就医建议
+### 智能问诊
 
-## 项目结构
+- 动态追问策略
+- 专业医学知识支持
+- 危急症状及时预警
 
-```
-project/
-├── app.py              # 主程序入口
-├── static/            # 静态资源
-├── templates/         # HTML 模板
-├── requirements.txt   # 项目依赖
-└── README.md         # 项目说明
-```
+### 病历记录
 
-## 开发计划
+自动生成包含以下内容的规范病历：
+- 主诉
+- 现病史
+- 既往史
+- 初步诊断
+- 就诊建议
 
-- [ ] 多语言支持
-- [ ] 移动端 APP
-- [ ] 医生在线咨询
-- [ ] 预约挂号集成
-- [ ] 病历导出功能
+### 用户界面
+
+- 深色主题设计
+- 流畅的动画效果
+- 直观的操作方式
+
+## 注意事项
+
+- 本系统建议仅供参考，不能替代专业医生的诊断
+- 如遇紧急情况请立即就医
+- 请确保提供真实准确的症状信息
+
+## 开源协议
+
+MIT License
 
 ## 贡献指南
 
 欢迎提交 Issue 和 Pull Request 来帮助改进项目。
 
-## 许可证
-
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
-
-## 联系方式
-
-- 项目维护者：[你的名字]
-- 邮箱：[你的邮箱]
-
 ## 致谢
 
-感谢所有为本项目做出贡献的开发者。
+- [Moonshot AI](https://www.moonshot.cn/) - 提供 AI 模型支持
+- [Flask](https://flask.palletsprojects.com/) - Web 框架
+- [Font Awesome](https://fontawesome.com/) - 图标支持
+- [Marked.js](https://marked.js.org/) - Markdown 渲染
+
+
